@@ -43,6 +43,10 @@ countylayoffs_sorted = [11960, 9736, 7589, 4848, 4264, 3318, 2607, 2584, 2334, 1
 countysorted2 = [  'San Joaquin County', 'Yolo County', 'Stanislaus County', 'Fresno County', 'Sonoma County', 'Solano County', 'Santa Barbara County', 'Napa County', 'Placer County', 'Butte County', 'Marin County', 'Merced County', 'Shasta County', 'Glenn County', 'Santa Cruz County', 'Plumas County', 'Nevada County', 'El Dorado County', 'Kings County', 'San Luis Obispo County', 'Imperial County', 'Monterey County', 'Humboldt County', 'Yuba County', 'Madera County', 'Mariposa County']
 countylayoffs_sorted2 = [ 598, 523, 501, 437, 408, 321, 298, 245, 229, 169, 164, 158, 149, 112, 63, 62, 58, 50, 44, 31, 25, 15, 10, 7, 6, 2]
 
+company100 = ["Dryer's Grand Ice Cream", 'Broadcom Inc.', 'Qualcomm Incorporated', 'Jabil Inc.', 'Cisco Systems, Inc.', 'Activision Blizzard', 'Ojai Valley Inn', 'Alvarado Hospital, LLC dba Alvarado Hospital Medical Center', 'Intel Corporation', 'Tower Semiconductor', 'Boardriders Wholesale, LLC', 'Southern California Pizza Company LLC', 'LinkedIn Corporation', 'Ajinomoto Foods North America, Inc.', 'California Institute of Technology', 'BILL Operations, LLC', 'El Dorado National (California), Inc.', 'Constellis', 'Surefox North America Inc', 'ResMEd Inc.', 'Rivian Automotive, LLC', 'Riot Games', 'Cruise LLC - Headquarters', 'Amyris, Inc.', 'Fashion Institute of Design & Merchandising FIDM', 'PayPal', "Dreyer's Grand Ice Cream", 'Foundation for California Community Colleges', 'Illumina, Inc.', 'Thermo Fisher Scientific', 'Sunrun Inc.', 'eBay Inc.', 'SK hynix NAND Product Solutions Corp. dba Solidigm', 'Becton, Dickinson and Company', 'Hawker Pacific Aerospace, Inc.', 'Bank of the West', "Mexi-Grill, LLC dba Javier's Newport Beach", 'Viasat, Inc.', 'Invitae Corporation', 'Flexport, Inc.', 'BMO Bank N.A. successor in interest to Bank of the West', 'David&rsquo;s Bridal, LLC', 'Twitch Interactive, Inc. SFO19 Facility', 'Terre du Soleil dba Auberge du Soleil', 'Kaiser Foundation Hospitals', 'Carbon Health', 'The Hotel del Coronado', 'ChargePoint, Inc.', 'Cruise LLC', 'Bloom Energy Corporation', 'Splunk Inc.', 'Snap Inc.', 'William Kreysler & Associates, Inc.', 'Amazon', 'Ericsson Inc.', 'Ace Hotel Group LLC at Ace Hotel Los Angeles', 'Los Angeles Times Communications LLC', 'Blue Shield of California', "David's Bridal, LLC", 'John Muir Health (JMH)', 'SPS Ventures Inc.', 'Nestle USA', 'Discord Inc.', 'Juniper Networks, Inc.', 'Headspace, Inc.', 'Farmers Group, Inc.', 'NuVasive, Inc.', 'Daifuku Services America Corporation', 'Charles Schwab & Co., Inc.', 'AVMAC LLC', 'ContextLogic Inc.', 'Gemological Institute of America, Inc. (GIA)', 'Acutus Medical, Inc.', 'Exelixis, Inc.', 'Pac-12 Enterprises, LLC', 'Plenty Unlimited Inc.', 'Paramount Global', 'Clari Inc.', 'Valiant Integrated Services', 'Roku, Inc.', 'Marvell Semiconductor, Inc.', 'SoCal Pizza Holdings, LLC', 'Owens-Brockway Glass Container, Inc.', 'City National Bank', 'AppFolio, Inc.', 'ITC Federal', 'Farmers Insurance Exchange', 'Lance Camper Mfg. Corp', 'Apple Inc.', 'Unity Technologies SF', 'Pixelberry Studios', 'Anaplan, Inc.', 'Sony Interactive Entertainment LLC', 'Western Digital', 'Lund Motion Products, Inc.', 'Atara Biotherapeutics', 'BlackLine Systems, Inc.', 'Aurora Solar Inc.', 'Brookfield Properties (USA II) LLC', 'Spotify USA Inc.']
+
+layoff100 = [2336, 1267, 1258, 1129, 1081, 897, 870, 808, 762, 699, 698, 686, 625, 538, 521, 468, 425, 402, 386, 364, 340, 336, 330, 328, 322, 311, 306, 298, 291, 282, 281, 281, 270, 270, 260, 248, 239, 239, 238, 233, 228, 224, 218, 217, 207, 199, 197, 195, 182, 180, 176, 174, 171, 170, 170, 169, 168, 165, 165, 164, 162, 161, 160, 159, 158, 158, 157, 155, 155, 153, 152, 151, 147, 143, 141, 141, 141, 139, 137, 135, 131, 130, 130, 127, 127, 125, 124, 123, 121, 120, 120, 119, 118, 117, 117, 117, 116, 115, 113, 112]
+
 
 # Initialize the Dash app
 app = dash.Dash(__name__)
@@ -55,7 +59,7 @@ app.layout = html.Div([
     html.Div(className='chart-section', children=[
         # Pycharts graph
         html.Div(className='chart-box', children=[
-            html.H2("Pycharts Graph"),
+            html.H2(""),
             dcc.Graph(
                 id='pycharts-graph',
                 figure={
@@ -63,14 +67,15 @@ app.layout = html.Div([
                         {'x': unique_dates, 'y': layoff_counts, 'type': 'scatter', 'name': 'Pycharts Plot'},
                     ],
                     'layout': {
-                        'title': 'Pycharts Graph'
+                        'title': 'Layoffs by Day (By Effective Date)',
+                        'yaxis': {'title': 'Number of Layoffs'}
                     }
                 }
             )
             
         ]),
         html.Div(className='chart-box', children=[
-            html.H2("Pycharts Graph"),
+            html.H2(""),
             dcc.Graph(
                 id='pycharts-graph2',
                 figure={
@@ -78,14 +83,15 @@ app.layout = html.Div([
                         {'x': months, 'y': months_layoffs, 'type': 'scatter', 'name': 'Pycharts Plot'},
                     ],
                     'layout': {
-                        'title': 'Number of Lay-offs per Month (By Effective Date)'
+                        'title': 'Number of Lay-offs per Month (By Effective Date)',
+                        'yaxis': {'title': 'Number of Layoffs'}
                     }
                 }
             )
             
         ]),
         html.Div(className='chart-box', children=[
-            html.H2("Pycharts Graph"),
+            html.H2(""),
             dcc.Graph(
                 id='pycharts-graph3',
                 figure={
@@ -93,7 +99,8 @@ app.layout = html.Div([
                         {'x': updated_months, 'y': updated_months_layoffs, 'type': 'scatter', 'name': 'Pycharts Plot'},
                     ],
                     'layout': {
-                        'title': 'Number of Lay-offs per Month (By Notice Date)'
+                        'title': 'Number of Lay-offs per Month (By Notice Date)',
+                        'yaxis': {'title': 'Number of Layoffs'}
                     }
                 }
             )
@@ -102,7 +109,7 @@ app.layout = html.Div([
 
         # Bar graph
         html.Div(className='chart-box', children=[
-            html.H2("Bar Graph"),
+            html.H2(""),
             dcc.Graph(
                 id='bar-graph',
                 figure={
@@ -110,14 +117,16 @@ app.layout = html.Div([
                         {'x': updated_months, 'y': updated_months_layoffs, 'type': 'bar', 'name': 'Bar Graph'}
                     ],
                     'layout': {
-                        'title': 'Bar Graph'
+                        'title': 'Layoffs per Month (By Notice Date)',
+                        'yaxis': {'title': 'Number of Layoffs'},
+                        
                     }
                 }
             )
         ]),
         
         html.Div(className='chart-box', children=[
-            html.H2("Bar Graph"),
+            html.H2(""),
             dcc.Graph(
                 id='bar-graph2',
                 figure={
@@ -125,14 +134,15 @@ app.layout = html.Div([
                         {'x': countysorted, 'y': countylayoffs_sorted, 'type': 'bar', 'name': 'Bar Graph'}
                     ],
                     'layout': {
-                        'title': 'Bar Graph'
+                        'title': 'Layoffs by County (By Notice Date)',
+                        'yaxis': {'title': 'Number of Layoffs'}
                     }
                 }
             )
         ]),
         
         html.Div(className='chart-box', children=[
-            html.H2("Bar Graph"),
+            html.H2(""),
             dcc.Graph(
                 id='bar-graph3',
                 figure={
@@ -140,7 +150,24 @@ app.layout = html.Div([
                         {'x': countysorted2, 'y': countylayoffs_sorted2, 'type': 'bar', 'name': 'Bar Graph'}
                     ],
                     'layout': {
-                        'title': 'Bar Graph'
+                        'title': 'Sorted Layoffs by County (By Notice Date)',
+                        'yaxis': {'title': 'Number of Layoffs'}
+                    }
+                }
+            )
+        ]),
+        html.Div(className='chart-box', children=[
+            html.H2(""),
+            dcc.Graph(
+                id='bar-graph4',
+                figure={
+                    'data': [
+                        {'x': company100, 'y': layoff100, 'type': 'bar', 'name': 'Bar Graph'}
+                    ],
+                    'layout': {
+                        
+                        'title': "Top 100 Comopanies with Most Layoffs (Non-Closure)",
+                        'yaxis': {'title': 'Number of Layoffs'}
                     }
                 }
             )
