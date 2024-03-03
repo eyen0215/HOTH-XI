@@ -8,7 +8,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 function addCustomMarkers() {
   var customMarkers = [
     { lat: 37.7749, lon: -122.4194, title: 'San Francisco', color: 'red' },
-    { lat: 34.0522, lon: -118.2437, title: 'Los Angeles', color: 'blue' },
+    { lat: 34.0522, lon: -118.2437, title: 'Los Angeles', color: 'red' },
     // Add more markers as needed
   ];
 
