@@ -9,5 +9,15 @@
 }
 body {
     background-color: lightblue;
-    position: re;
+    position: relative;
+}
+
+
+#please_work
+{
+    overflow: hidden;
+}
+iframe
+{
+    overflow: hidden;
 }

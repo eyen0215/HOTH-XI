@@ -1,11 +1,34 @@
 import dash
+from flask import Flask
 from dash import dcc, html
 import plotly.graph_objs as go
 
 # Sample data for charts
-x_values = [1, 2, 3, 4, 5]
-y_values = [10, 15, 13, 17, 18]
 
+
+
+#read and process files
+unique_dates = []
+layoff_counts = []
+with open('dates_layoffs') as openfileobject:
+    for line in openfileobject:
+        a,b = line.split(" ")
+        unique_dates.append(a)
+        layoff_counts.append(b)
+
+months = ['2023/03', '2023/05', '2023/06', '2023/07', '2023/08', '2023/09', '2023/10', '2023/11', '2023/12', '2024/01', '2024/02', '2024/03', '2024/04', '2024/05', '2024/06', '2024/07', '2024/08']
+months_layoffs = [224, 112, 555, 3576, 3858, 4413, 3937, 5433, 11425, 8515, 5308, 8954, 4942, 295, 2, 15, 73]
+with open("months_layoffs.txt") as filee:
+    for linee in filee:
+        c,d = linee.split(" ")
+        months.append(c)
+        months_layoffs.append(d)
+
+updated_months = ['2023/04', '2023/05', '2023/06', '2023/07', '2023/08', '2023/09', '2023/10', '2023/11', '2023/12', '2024/01']
+updated_months_layoffs = [501, 240, 4369, 5124, 6521, 7935, 8111, 7324, 6023, 11069]
+
+x_values=unique_dates
+y_values=layoff_counts
 # Initialize the Dash app
 app = dash.Dash(__name__)
 
@@ -22,13 +45,44 @@ app.layout = html.Div([
                 id='pycharts-graph',
                 figure={
                     'data': [
-                        {'x': x_values, 'y': y_values, 'type': 'scatter', 'name': 'Pycharts Plot'},
+                        {'x': unique_dates, 'y': layoff_counts, 'type': 'scatter', 'name': 'Pycharts Plot'},
                     ],
                     'layout': {
                         'title': 'Pycharts Graph'
                     }
                 }
             )
+            
+        ]),
+        html.Div(className='chart-box', children=[
+            html.H2("Pycharts Graph"),
+            dcc.Graph(
+                id='pycharts-graph2',
+                figure={
+                    'data': [
+                        {'x': months, 'y': months_layoffs, 'type': 'scatter', 'name': 'Pycharts Plot'},
+                    ],
+                    'layout': {
+                        'title': 'Pycharts Graph'
+                    }
+                }
+            )
+            
+        ]),
+        html.Div(className='chart-box', children=[
+            html.H2("Pycharts Graph"),
+            dcc.Graph(
+                id='pycharts-graph3',
+                figure={
+                    'data': [
+                        {'x': updated_months, 'y': updated_months_layoffs, 'type': 'scatter', 'name': 'Pycharts Plot'},
+                    ],
+                    'layout': {
+                        'title': 'Pycharts Graph'
+                    }
+                }
+            )
+            
         ]),
 
         # Bar graph
@@ -52,8 +106,8 @@ app.layout = html.Div([
     html.Div(className='text-boxes', children=[
         html.H2("Text Boxes"),
         html.Div([
-            html.P("Text Box 1: This is some sample text."),
-            html.P("Text Box 2: More sample text."),
+            html.P("Text Box 1: I LOVE MEN"),
+            html.P("Text Box 2: I LOVE MEN"),
             html.P("Text Box 3: Even more sample text."),
         ])
     ])
@@ -61,4 +115,5 @@ app.layout = html.Div([
 
 # Run the app
 if __name__ == '__main__':
+    print(months_layoffs)
     app.run_server(debug=True)
