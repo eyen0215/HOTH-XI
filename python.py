@@ -53,7 +53,11 @@ app = dash.Dash(__name__)
 
 # Define the layout of the dashboard
 app.layout = html.Div([
-    html.H1("Python Dashboard with Pycharts and Bar Graphs"),
+    html.H1("Python Dashboard with Pycharts and Bar Graphs",
+            style={
+                'backgroundColor':'cadetblue',
+                'color':'floralwhite'
+            }),
 
     # Section for charts
     html.Div(className='chart-section', children=[
