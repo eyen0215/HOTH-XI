@@ -19,7 +19,7 @@ function addCustomMarkers() {
     customMarkers.push({
       lat: lats[i],
       lon: longs[i],
-      title: `<body><h>${compname1}</h><p>${info1}</p><p>${address1}</p></body>`,
+      title: `<body><h2>${compname1}</h2><p>Total Layoffs: ${info1}</p><p>Address: ${address1}</p></body>`,
       color: 'red'
     });
   }

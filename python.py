@@ -227,9 +227,11 @@ app.layout = html.Div([
                 'text-align':'center'
                 }),
         html.Div([
-            html.P("Text Box 1: I LOVE MEN"),
-            html.P("Text Box 2: I LOVE MEN"),
-            html.P("Text Box 3: Even more sample text."),
+            html.P("Made by: Eric Yen (eyen0215), Max Cheung (MacaroniMacks), Felicia Ye (Feliciaye0)"),
+            html.P("03/03/2024"),
+            html.P("We love men",style={
+                'color':'#ADD8E6'
+                }),
         ])
     ])
 ])
