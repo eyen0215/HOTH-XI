@@ -131,12 +131,7 @@ app.layout = html.Div([
 
         # Bar graph
         html.Div(className='chart-box', children=[
-            html.H2("PlaceHolder",
-            style={
-                'backgroundColor':'cadetblue',
-                'color':'cadetblue',
-                'text-align':'center'
-            }),
+            html.H2(""),
             dcc.Graph(
                 id='bar-graph',
                 figure={
