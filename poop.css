@@ -28,3 +28,10 @@ iframe
 {
     overflow: hidden;
 }
+#pycharts-graph
+{
+    background-color: aqua;
+    color: aqua;
+    color-scheme: aqua;
+    flood-color: aqua;
+}

@@ -68,7 +68,9 @@ app.layout = html.Div([
                     ],
                     'layout': {
                         'title': 'Layoffs by Day (By Effective Date)',
-                        'yaxis': {'title': 'Number of Layoffs'}
+                        'yaxis': {'title': 'Number of Layoffs'},
+                        'plot_bgcolor': '#ADD8E6',
+                        'paper_bgcolor' : '#ADD8E6'
                     }
                 }
             )
@@ -84,7 +86,9 @@ app.layout = html.Div([
                     ],
                     'layout': {
                         'title': 'Number of Lay-offs per Month (By Effective Date)',
-                        'yaxis': {'title': 'Number of Layoffs'}
+                        'yaxis': {'title': 'Number of Layoffs'},
+                        'plot_bgcolor': '#ADD8E6',
+                        'paper_bgcolor' : '#ADD8E6'
                     }
                 }
             )
@@ -100,7 +104,9 @@ app.layout = html.Div([
                     ],
                     'layout': {
                         'title': 'Number of Lay-offs per Month (By Notice Date)',
-                        'yaxis': {'title': 'Number of Layoffs'}
+                        'yaxis': {'title': 'Number of Layoffs'},
+                        'plot_bgcolor': '#ADD8E6',
+                        'paper_bgcolor' : '#ADD8E6'
                     }
                 }
             )
@@ -119,6 +125,8 @@ app.layout = html.Div([
                     'layout': {
                         'title': 'Layoffs per Month (By Notice Date)',
                         'yaxis': {'title': 'Number of Layoffs'},
+                        'plot_bgcolor': '#ADD8E6',
+                        'paper_bgcolor' : '#ADD8E6'
                         
                     }
                 }
@@ -135,7 +143,9 @@ app.layout = html.Div([
                     ],
                     'layout': {
                         'title': 'Layoffs by County (By Notice Date)',
-                        'yaxis': {'title': 'Number of Layoffs'}
+                        'yaxis': {'title': 'Number of Layoffs'},
+                        'plot_bgcolor': '#ADD8E6',
+                        'paper_bgcolor' : '#ADD8E6'
                     }
                 }
             )
@@ -151,7 +161,9 @@ app.layout = html.Div([
                     ],
                     'layout': {
                         'title': 'Sorted Layoffs by County (By Notice Date)',
-                        'yaxis': {'title': 'Number of Layoffs'}
+                        'yaxis': {'title': 'Number of Layoffs'},
+                        'plot_bgcolor': '#ADD8E6',
+                        'paper_bgcolor' : '#ADD8E6'
                     }
                 }
             )
@@ -167,7 +179,9 @@ app.layout = html.Div([
                     'layout': {
                         
                         'title': "Top 100 Comopanies with Most Layoffs (Non-Closure)",
-                        'yaxis': {'title': 'Number of Layoffs'}
+                        'yaxis': {'title': 'Number of Layoffs'},
+                        'plot_bgcolor': '#ADD8E6',
+                        'paper_bgcolor' : '#ADD8E6'
                     }
                 }
             )
@@ -187,5 +201,4 @@ app.layout = html.Div([
 
 # Run the app
 if __name__ == '__main__':
-    print(months_layoffs)
     app.run_server(debug=True)
