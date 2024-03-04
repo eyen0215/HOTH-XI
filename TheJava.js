@@ -17,8 +17,8 @@ function addCustomMarkers() {
     let info1 = layoffs[i];
     let address1 = address[i];
     customMarkers.push({
-      lat: lats,
-      lon: longs,
+      lat: lats[i],
+      lon: longs[i],
       title: `<body><h>${compname1}</h><p>${info1}</p><p>${address1}</p></body>`,
       color: 'red'
     });
@@ -30,7 +30,7 @@ function addCustomMarkers() {
       fillColor: marker.color,
       fillOpacity: 1,
       radius: 8
-    }).bindPopup(marker.title).addTo(map);
+    }).bindTooltip(marker.title).addTo(map);
   });
 }
 
