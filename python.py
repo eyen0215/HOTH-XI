@@ -56,7 +56,8 @@ app.layout = html.Div([
     html.H1("Python Dashboard with Pycharts and Bar Graphs",
             style={
                 'backgroundColor':'cadetblue',
-                'color':'floralwhite'
+                'color':'floralwhite',
+                'text-align':'center'
             }),
 
     # Section for charts
