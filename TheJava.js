@@ -18,7 +18,7 @@ function addCustomMarkers() {
       fillColor: marker.color,
       fillOpacity: 1,
       radius: 8
-    }).bindPopup(marker.title).addTo(map);
+    }).bindTooltip(marker.title).addTo(map);
   });
 }
 

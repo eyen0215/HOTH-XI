@@ -61,6 +61,7 @@ app.layout = html.Div([
             }),
 
     # Section for charts
+
     html.Div(className='chart-section', children=[
         # Pycharts graph
         html.Div(className='chart-box', children=[
@@ -80,9 +81,14 @@ app.layout = html.Div([
                 }
             )
             
-        ]),
+        ],style={'width': '100%', 'display': 'inline-block'}),
         html.Div(className='chart-box', children=[
-            html.H2(""),
+            html.H2("PlaceHolder",
+            style={
+                'backgroundColor':'cadetblue',
+                'color':'cadetblue',
+                'text-align':'center'
+            }),
             dcc.Graph(
                 id='pycharts-graph2',
                 figure={
@@ -100,7 +106,12 @@ app.layout = html.Div([
             
         ]),
         html.Div(className='chart-box', children=[
-            html.H2(""),
+            html.H2("PlaceHolder",
+            style={
+                'backgroundColor':'cadetblue',
+                'color':'cadetblue',
+                'text-align':'center'
+            }),
             dcc.Graph(
                 id='pycharts-graph3',
                 figure={
@@ -120,7 +131,12 @@ app.layout = html.Div([
 
         # Bar graph
         html.Div(className='chart-box', children=[
-            html.H2(""),
+            html.H2("PlaceHolder",
+            style={
+                'backgroundColor':'cadetblue',
+                'color':'cadetblue',
+                'text-align':'center'
+            }),
             dcc.Graph(
                 id='bar-graph',
                 figure={
@@ -139,7 +155,12 @@ app.layout = html.Div([
         ]),
         
         html.Div(className='chart-box', children=[
-            html.H2(""),
+            html.H2("PlaceHolder",
+            style={
+                'backgroundColor':'cadetblue',
+                'color':'cadetblue',
+                'text-align':'center'
+            }),
             dcc.Graph(
                 id='bar-graph2',
                 figure={
@@ -157,7 +178,12 @@ app.layout = html.Div([
         ]),
         
         html.Div(className='chart-box', children=[
-            html.H2(""),
+            html.H2("PlaceHolder",
+            style={
+                'backgroundColor':'cadetblue',
+                'color':'cadetblue',
+                'text-align':'center'
+            }),
             dcc.Graph(
                 id='bar-graph3',
                 figure={
@@ -174,7 +200,12 @@ app.layout = html.Div([
             )
         ]),
         html.Div(className='chart-box', children=[
-            html.H2(""),
+            html.H2("PlaceHolder",
+            style={
+                'backgroundColor':'cadetblue',
+                'color':'cadetblue',
+                'text-align':'center'
+            }),
             dcc.Graph(
                 id='bar-graph4',
                 figure={
@@ -207,6 +238,7 @@ app.layout = html.Div([
         ])
     ])
 ])
+
 
 # Run the app
 if __name__ == '__main__':
