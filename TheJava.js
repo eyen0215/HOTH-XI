@@ -17,7 +17,7 @@ function addCustomMarkers() {
       fillColor: marker.color,
       fillOpacity: 1,
       radius: 8
-    }).bindPopup('<h1>balls </h1><p>Hello world!<br />This is a nice popup.</p>').addTo(map);
+    }).bindTooltip(marker.title).addTo(map);
   });
 }
 
