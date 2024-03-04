@@ -11,14 +11,13 @@ function addCustomMarkers() {
     { lat: 34.0522, lon: -118.2437, title: 'Los Angeles', color: 'red' },
     // Add more markers as needed
   ];
-
   customMarkers.forEach(marker => {
     L.circleMarker([marker.lat, marker.lon], {
       color: marker.color,
       fillColor: marker.color,
       fillOpacity: 1,
       radius: 8
-    }).bindPopup(marker.title).addTo(map);
+    }).bindPopup('<h1>balls </h1><p>Hello world!<br />This is a nice popup.</p>').addTo(map);
   });
 }
 
