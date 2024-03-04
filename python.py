@@ -195,7 +195,11 @@ app.layout = html.Div([
 
     # Text boxes
     html.Div(className='text-boxes', children=[
-        html.H2("Text Boxes"),
+        html.H2("Text Boxes",
+                style={'backgroundColor':'cadetblue',
+                'color':'floralwhite',
+                'text-align':'center'
+                }),
         html.Div([
             html.P("Text Box 1: I LOVE MEN"),
             html.P("Text Box 2: I LOVE MEN"),
